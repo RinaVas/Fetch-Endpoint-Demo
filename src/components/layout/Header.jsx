@@ -1,13 +1,21 @@
-import './header.scss';
+import PropTypes from "prop-types";
+import "./Header.scss";
 
-function Header(props){
-
-  return(
+function Header(props) {
+  // Initialisation -----------------------------------------------
+  // State --------------------------------------------------------
+  // Handlers -----------------------------------------------------
+  // View ---------------------------------------------------------
+  return (
     <header>
-    <h1>Basic React Demo</h1>
-    <p className='welcome'>Welcome {props.loggedInUser}</p>
+      <h1>Fetch Endpoint Demo</h1>
+      <p className="welcome">Welcome {props.loggedInUser}</p>
     </header>
   );
 }
+
+Header.propTypes = {
+  loggedInUser: PropTypes.string.isRequired,
+};
 
 export default Header;
