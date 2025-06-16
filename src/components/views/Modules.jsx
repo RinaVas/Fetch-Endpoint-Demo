@@ -14,26 +14,19 @@ function Modules(){
       ModuleImageURL: "https://images.freeimages.com/images/small-previews/9b8/electronic-components-2-1242738.jpg",
     };
     const apiURL = "https://softwarehub.uk/unibase/api";
-    const modulesEndpoint = `${apiURL}/modules`;
+    const myModulesEndpoint = `${apiURL}/modules`;
   // State ---------------------------------------
     const [modules, setModules] = useState(null);
 
-    // API Fetch -----------------------------------
     const apiGet = async (endpoint) => {
-      try {
-        const response = await fetch(endpoint);
-        const result = await response.json();
-        setModules(result);
-      } catch (error) {
-        console.error("Error fetching modules:", error);
-        setModules([]);
-      }
-    };
+      const response = await fetch(endpoint);
+      const result = await response.json();
+      setModules(result);
+  };
 
-    // Effect --------------------------------------
     useEffect(() => {
-      apiGet(modulesEndpoint);
-    }, [modulesEndpoint]);
+      apiGet(myModulesEndpoint);
+    }, [myModulesEndpoint]);
 
     // Handlers ------------------------------------
     const handleAdd = (module) => {
